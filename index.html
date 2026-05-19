@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pobal | Digital Parish Infrastructure</title>
-  <meta name="description" content="Pobal is beautifully designed digital parish infrastructure for Irish Catholic parishes.">
+  <title>Neri | Catholic Parish Engagement Platform</title>
+  <meta name="description" content="Neri is a white-label Catholic parish engagement platform for keeping parish life connected throughout the week.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -121,7 +121,7 @@
       ["prayer", "Prayer", "✦"],
       ["give", "Give", "♥"],
       ["community", "Community", "◌"],
-      ["office", "Parish Office", "✉"]
+      ["office", "Enquiries", "✉"]
     ];
 
     const events = [
@@ -156,14 +156,14 @@
 
       const showToast = (message) => {
         setToast(message);
-        window.clearTimeout(window.__pobalToast);
-        window.__pobalToast = window.setTimeout(() => setToast(""), 2600);
+        window.clearTimeout(window.__neriToast);
+        window.__neriToast = window.setTimeout(() => setToast(""), 2600);
       };
 
       const showOffice = () => {
         setOfficeOpen(true);
         window.setTimeout(() => {
-          document.getElementById("office")?.scrollIntoView({ behavior: "smooth" });
+          document.getElementById("admin")?.scrollIntoView({ behavior: "smooth" });
         }, 40);
       };
 
@@ -176,7 +176,7 @@
               <DemoCopy setPhoneTab={setPhoneTab} />
               <PhoneDemo active={phoneTab} setActive={setPhoneTab} showToast={showToast} showOffice={showOffice} />
             </section>
-            <Pillars />
+            <WhyNeri />
             <FeaturePreview setPhoneTab={setPhoneTab} />
             <Identity />
             <OfficeView open={officeOpen} setOpen={setOfficeOpen} showToast={showToast} />
@@ -197,18 +197,19 @@
         <header className="sticky top-0 z-40 border-b border-[#d8c6ac]/60 bg-[#fff8ed]/82 backdrop-blur-xl">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
             <a href="#" className="flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-candle/40 bg-pine font-serif text-2xl text-candle">P</span>
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-candle/40 bg-pine font-serif text-2xl text-candle">N</span>
               <span>
-                <span className="block font-serif text-3xl leading-none text-pine">Pobal</span>
-                <span className="block text-xs font-semibold uppercase tracking-[0.22em] text-stone">Digital parish infrastructure</span>
+                <span className="block font-serif text-3xl leading-none text-pine">Neri</span>
+                <span className="block text-xs font-semibold uppercase tracking-[0.22em] text-stone">Catholic parish engagement</span>
               </span>
             </a>
             <nav className="hidden items-center gap-6 text-sm font-semibold text-stone md:flex">
+              <a href="#why" className="hover:text-pine">Why Neri</a>
               <a href="#demo" className="hover:text-pine">Phone demo</a>
-              <a href="#office" className="hover:text-pine">Parish office</a>
+              <a href="#admin" className="hover:text-pine">Admin preview</a>
               <a href="#forms" className="hover:text-pine">Forms</a>
             </nav>
-            <a href="mailto:hello@pobal.ie?subject=Pobal feedback" className="rounded-full bg-pine px-4 py-2 text-sm font-semibold text-vellum shadow-lift">
+            <a href="mailto:hello@neri.ie?subject=Neri feedback" className="rounded-full bg-pine px-4 py-2 text-sm font-semibold text-vellum shadow-lift">
               Share feedback
             </a>
           </div>
@@ -219,40 +220,76 @@
     function Hero({ setPhoneTab, showOffice }) {
       return (
         <section className="relative">
-          <div className="mx-auto grid max-w-7xl gap-10 px-5 pb-14 pt-14 lg:grid-cols-[1.04fr_.96fr] lg:px-8 lg:pb-20 lg:pt-20">
+          <div className="mx-auto grid max-w-7xl gap-10 px-5 pb-14 pt-14 lg:grid-cols-[1fr_480px] lg:px-8 lg:pb-20 lg:pt-20">
             <div className="flex flex-col justify-center">
               <div className="mb-6 inline-flex w-fit rounded-full border border-candle/35 bg-white/45 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-wine">
-                St. Brigid's Parish, Kildare demo
+                Neri for Irish Catholic parishes
               </div>
               <h1 className="max-w-3xl font-serif text-6xl font-semibold leading-[.88] text-pine md:text-7xl lg:text-8xl">
-                Your parish in your pocket.
+                Bring parish life back into daily connection.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-[#5c5147]">
-                Pobal helps Irish Catholic parishes bring Mass times, notices, giving, intentions, Mass cards, candles, and parish life into one beautifully simple digital space.
+                Neri helps Catholic parishes engage younger generations, support families abroad, simplify giving, and keep communities connected throughout the week.
               </p>
               <p className="mt-4 max-w-2xl text-base leading-7 text-stone">
-                It is not a social network or a piece of parish office software with a nicer coat of paint. It is calm digital parish infrastructure: emotionally close for parishioners, practical for the parish office.
+                A white-label parish engagement platform for Mass times, daily prayer, notices, donations, intentions, Mass cards, candles, bulletins, homilies, and parish enquiries.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="#demo" onClick={() => setPhoneTab("home")} className="rounded-full bg-pine px-6 py-3 text-sm font-bold text-vellum shadow-lift">
-                  Open the parish app demo
+                  Try the parishioner demo
                 </a>
                 <button onClick={showOffice} className="rounded-full border border-candle/40 bg-white/58 px-6 py-3 text-sm font-bold text-pine">
-                  View parish office
+                  View admin preview
                 </button>
               </div>
             </div>
-            <div className="relative min-h-[520px]">
-              <div className="church-visual arch absolute inset-0 shadow-soft"></div>
-              <div className="absolute bottom-6 left-6 right-6 rounded-[28px] border border-white/20 bg-[#17130f]/45 p-5 text-vellum backdrop-blur-md">
-                <p className="font-serif text-4xl leading-none">Less admin for the parish office.</p>
-                <p className="mt-3 text-sm leading-6 text-vellum/82">
-                  Enquiries, Mass intentions, Mass cards, giving, notices, and parish forms kept gently organised, without forcing a parish to change how it already works.
-                </p>
+            <HeroPhonePreview setPhoneTab={setPhoneTab} />
+          </div>
+        </section>
+      );
+    }
+
+    function HeroPhonePreview({ setPhoneTab }) {
+      return (
+        <div className="relative mx-auto w-full max-w-[440px] lg:mr-4">
+          <div className="absolute -left-8 top-16 hidden h-36 w-36 rounded-full border border-candle/25 bg-candle/10 blur-sm lg:block"></div>
+          <div className="rounded-[46px] border border-[#d8c6ac] bg-[#efe3d1] p-3 shadow-soft">
+            <div className="relative overflow-hidden rounded-[36px] border border-[#ddccb4] bg-[#fff9ef]">
+              <div className="mx-auto mt-3 h-1.5 w-24 rounded-full bg-[#d4c2aa]"></div>
+              <div className="flex items-center justify-between px-5 py-3 text-xs font-bold text-stone">
+                <span>9:41</span><span>● ● ▰</span>
+              </div>
+              <div className="px-4 pb-5">
+                <section className="church-visual arch min-h-[285px] p-5 text-vellum shadow-lift">
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-candle/45 bg-black/25 font-serif text-2xl text-candle">✚</div>
+                    <div>
+                      <p className="font-serif text-3xl leading-none">St. Brigid's Parish</p>
+                      <p className="text-xs uppercase tracking-[0.22em] text-vellum/78">Kildare</p>
+                    </div>
+                  </div>
+                  <div className="mt-24">
+                    <p className="font-serif text-5xl leading-[.9]">Welcome home.</p>
+                    <p className="mt-3 max-w-[15rem] text-sm leading-6 text-vellum/86">Mass, prayer, giving, and parish life in one calm place.</p>
+                  </div>
+                </section>
+                <div className="mt-4 grid grid-cols-2 gap-3">
+                  {[
+                    ["Daily prayer", "prayer"],
+                    ["Donate", "give"],
+                    ["Mass cards", "give"],
+                    ["Notices", "community"]
+                  ].map(([label, tab]) => (
+                    <a key={label} href="#demo" onClick={() => setPhoneTab(tab)} className="rounded-[22px] border border-[#e2d0b8] bg-parchment px-3 py-3 text-center text-sm font-bold text-pine">
+                      {label}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </section>
+          <p className="mt-4 text-center text-sm font-semibold text-stone">Embedded St. Brigid's Parish demo</p>
+        </div>
       );
     }
 
@@ -315,7 +352,7 @@
             </div>
           </div>
           <button onClick={showOffice} className="mt-4 w-full rounded-full border border-candle/35 bg-white/58 px-5 py-3 text-sm font-bold text-pine">
-            See how the parish office manages this
+            View the admin preview for priests and parish staff
           </button>
         </div>
       );
@@ -602,14 +639,30 @@
       );
     }
 
-    function Pillars() {
+    function WhyNeri() {
       return (
-        <section className="mx-auto max-w-7xl px-5 py-14 lg:px-8">
+        <section id="why" className="mx-auto max-w-7xl px-5 py-14 lg:px-8">
+          <div className="mb-8 grid gap-8 rounded-[40px] border border-[#e2d0b8] bg-white/52 p-7 shadow-lift md:grid-cols-[.9fr_1.1fr] md:p-10">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.28em] text-wine">The name</p>
+              <h2 className="mt-3 font-serif text-5xl font-semibold leading-none text-pine">Neri is about joyful parish life.</h2>
+            </div>
+            <p className="text-base leading-8 text-stone">
+              Neri is inspired by Saint Philip Neri, known for joyful faith, community, and bringing people together. Neri helps parishes stay present in people’s lives throughout the week.
+            </p>
+          </div>
+          <div className="mb-8 max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-wine">Why Neri</p>
+            <h2 className="mt-3 font-serif text-5xl font-semibold leading-none text-pine">Parish connection should not disappear after Sunday.</h2>
+            <p className="mt-4 text-sm leading-7 text-stone">
+              Neri keeps parishioners connected beyond Mass, helps younger people feel more involved, supports people who have moved abroad, makes giving more sustainable, and lets the parish feel alive during the week.
+            </p>
+          </div>
           <div className="grid gap-4 md:grid-cols-3">
             {[
-              ["Less parish admin", "Requests arrive organised, with the right details gathered gently before the office follows up."],
-              ["More traceable giving", "Parishes can support one-time, recurring, CHY3, campaigns, and stewardship reporting without a fintech feel."],
-              ["Deeper parish connection", "Prayer, notices, Mass cards, candles, homilies, and events make the parish feel close for locals and emigrants."]
+              ["Beyond Sunday", "Daily prayer, notices, homilies, candles, and events help parish life remain present throughout the week."],
+              ["Younger families", "Simple mobile flows make it easier for busy parents, young adults, and volunteers to know what is happening."],
+              ["Diaspora belonging", "People abroad can follow home parish life, send Mass cards, support collections, and ask for prayers."]
             ].map(([title, body]) => (
               <div key={title} className="soft-card rounded-[30px] p-7">
                 <p className="font-serif text-4xl leading-none text-pine">{title}</p>
@@ -623,12 +676,14 @@
 
     function FeaturePreview({ setPhoneTab }) {
       const features = [
-        ["Mass intentions", "Request remembrance, healing, birthday, or special intentions with parish review.", "give"],
-        ["Mass cards", "Digital or physical cards with parish posting, pickup, and a beautiful preview.", "give"],
-        ["Candles and prayer", "A devotional candle-lighting moment with gentle prayer support.", "prayer"],
-        ["Bulletins and notices", "Weekly PDFs, office hours, volunteer notices, and parish updates.", "community"],
-        ["Parish services", "Baptism, wedding, funeral support, certificates, and office contact as enquiries.", "office"],
-        ["Giving", "Warm one-time and recurring support, with CHY3 explained clearly.", "give"]
+        ["Parishioner engagement", "Mass times, notices, livestreams, events, and parish contact in one familiar place.", "home"],
+        ["Digital giving", "One-time and recurring gifts, CHY3 notes, donation summaries, and stewardship without a fintech feel.", "give"],
+        ["Mass cards and candles", "Prayerful digital or physical Mass cards and candle lighting for remembrance and support.", "give"],
+        ["Daily prayer and reflections", "Readings, Gospel reflections, priest voice notes, saved prayers, and seasonal content.", "prayer"],
+        ["Events and volunteering", "Choir, coffee mornings, youth nights, pilgrimages, and volunteer notices.", "community"],
+        ["Sacraments and Mass intentions", "Structured enquiries and pastoral Mass intention requests that the parish reviews.", "office"],
+        ["Bulletin and homilies", "Weekly bulletin PDFs, parish notices, audio homilies, and livestream links.", "community"],
+        ["Diaspora connection", "Keep families in London, Boston, Sydney, and Perth close to home parish life.", "home"]
       ];
 
       return (
@@ -640,7 +695,7 @@
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {features.map(([title, body, tab]) => (
               <button key={title} onClick={() => { setPhoneTab(tab); document.getElementById("demo").scrollIntoView({ behavior: "smooth" }); }} className="soft-card rounded-[28px] p-6 text-left transition hover:-translate-y-0.5">
-                <div className="mb-6 h-20 rounded-t-full bg-gradient-to-b from-[#f8edda] to-[#e4cfad]"></div>
+                <div className="mb-6 h-20 rounded-t-full bg-gradient-to-b from-[#f8edda] via-[#ead8bd] to-[#d9bd88]"></div>
                 <p className="font-serif text-3xl text-pine">{title}</p>
                 <p className="mt-2 text-sm leading-7 text-stone">{body}</p>
               </button>
@@ -659,7 +714,7 @@
                 <p className="text-xs font-bold uppercase tracking-[0.28em] text-candle">White-label parish identity</p>
                 <h2 className="mt-4 font-serif text-5xl font-semibold leading-none">Every parish should feel local.</h2>
                 <p className="mt-5 max-w-2xl text-base leading-8 text-vellum/82">
-                  Pobal can carry a parish crest, church photography, priest profile, local saints, liturgical themes, and the language of the parish office. The platform stays consistent; each parish feels familiar.
+                  Neri can carry a parish crest, church photography, priest profile, local saints, liturgical themes, and the language of the parish office. The platform stays consistent; each parish feels familiar.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-3">
@@ -675,20 +730,92 @@
 
     function OfficeView({ open, setOpen, showToast }) {
       const [actions, setActions] = useState(officeActionsSeed);
+      const [adminScreen, setAdminScreen] = useState("Dashboard overview");
+      const adminScreens = [
+        ["Dashboard overview", "Today’s parish office work in one calm queue: enquiries, intentions, cards, notices, and giving."],
+        ["Update Mass times", "Edit weekday, Sunday, feast day, funeral, and livestream times without changing the public site manually."],
+        ["Post parish notices", "Publish office hours, choir reminders, volunteer requests, bereavement notices, and school-linked updates."],
+        ["Upload bulletin PDF", "Upload the weekly bulletin and choose the notices that should appear first in the app."],
+        ["Add events", "Add coffee mornings, youth group, pilgrimages, choir practice, retreats, and parish fundraisers."],
+        ["Manage prayer requests", "Review moderated intentions and keep the prayer wall gentle, pastoral, and safe."],
+        ["Review donation summaries", "See monthly gifts, recurring support, campaign totals, and CHY3 follow-up prompts."],
+        ["Manage Mass intentions", "Confirm requested dates, mark offerings received, and follow up with families where needed."],
+        ["Respond to sacrament enquiries", "Review baptism, wedding, funeral support, certificate, and parish office enquiries."],
+        ["Upload homily or reflection", "Add Fr. Michael’s text, audio note, or Sunday homily highlight for the week."],
+        ["Send parish announcement", "Send a gentle push, email, or SMS announcement to parishioners who have opted in."]
+      ];
       const mark = (index, status) => {
         setActions(actions.map((item, i) => i === index ? [item[0], status, item[2]] : item));
         showToast(status === "Completed" ? "Marked as completed." : "Status updated for the parish office.");
       };
 
       return (
-        <section id="office" className={cn("mx-auto max-w-7xl px-5 py-14 lg:px-8", open && "scroll-mt-20")}>
+        <section id="admin" className={cn("mx-auto max-w-7xl px-5 py-14 lg:px-8", open && "scroll-mt-20")}>
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.28em] text-wine">Parish Office View</p>
-              <h2 className="mt-3 font-serif text-5xl font-semibold leading-none text-pine">Calm, manageable, and built around next steps.</h2>
+              <p className="text-xs font-bold uppercase tracking-[0.28em] text-wine">Admin and priest preview</p>
+              <h2 className="mt-3 font-serif text-5xl font-semibold leading-none text-pine">A simple web dashboard for the parish office.</h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-stone">For secretaries, volunteers, communications helpers, and priests who need a clear daily picture without enterprise software noise.</p>
             </div>
             <a href="#demo" className="w-fit rounded-full bg-pine px-5 py-3 text-sm font-bold text-vellum">View parish app</a>
+          </div>
+
+          <div className="mb-6 overflow-hidden rounded-[34px] border border-[#d8c6ac] bg-[#efe3d1] p-3 shadow-soft">
+            <div className="grid min-h-[430px] overflow-hidden rounded-[26px] border border-[#ddccb4] bg-[#fff9ef] lg:grid-cols-[270px_1fr]">
+              <aside className="border-b border-[#e2d0b8] bg-pine p-4 text-vellum lg:border-b-0 lg:border-r">
+                <div className="mb-5 flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-candle/20 font-serif text-candle">N</span>
+                  <div>
+                    <p className="font-serif text-2xl leading-none">Neri</p>
+                    <p className="text-xs text-vellum/70">St. Brigid’s Parish</p>
+                  </div>
+                </div>
+                <div className="flex gap-2 overflow-x-auto pb-1 lg:block lg:space-y-1">
+                  {adminScreens.map(([label]) => (
+                    <button
+                      key={label}
+                      onClick={() => setAdminScreen(label)}
+                      className={cn(
+                        "shrink-0 rounded-2xl px-3 py-2 text-left text-xs font-bold transition lg:w-full",
+                        adminScreen === label ? "bg-vellum text-pine" : "text-vellum/78 hover:bg-white/10"
+                      )}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              </aside>
+              <div className="p-5 md:p-7">
+                <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.22em] text-wine">Preview screen</p>
+                    <h3 className="mt-2 font-serif text-4xl leading-none text-pine">{adminScreen}</h3>
+                    <p className="mt-3 max-w-2xl text-sm leading-7 text-stone">
+                      {adminScreens.find(([label]) => label === adminScreen)?.[1]}
+                    </p>
+                  </div>
+                  <button onClick={() => showToast("Public parish app preview opened.")} className="rounded-full border border-candle/35 bg-white px-4 py-2 text-sm font-bold text-pine">Preview public app</button>
+                </div>
+                <div className="grid gap-3 md:grid-cols-3">
+                  {[
+                    ["Needs attention", "14"],
+                    ["Completed today", "8"],
+                    ["Families contacted", "6"]
+                  ].map(([label, value]) => (
+                    <div key={label} className="rounded-[22px] border border-[#e2d0b8] bg-white/70 p-4">
+                      <p className="font-serif text-4xl leading-none text-pine">{value}</p>
+                      <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-stone">{label}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-5 rounded-[24px] border border-[#e2d0b8] bg-parchment/70 p-4">
+                  <p className="font-bold text-pine">What this screen helps with</p>
+                  <p className="mt-2 text-sm leading-7 text-stone">
+                    The parish office can keep familiar workflows, but the requests arrive in one tidy place with the right details, notes, statuses, and next steps.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-5">
@@ -741,7 +868,7 @@
             <div className="space-y-6">
               <div className="soft-card rounded-[34px] p-6">
                 <h3 className="font-serif text-4xl leading-none text-pine">Secretary and volunteer friendly</h3>
-                <p className="mt-4 text-sm leading-7 text-stone">The point is not to replace pastoral judgement. Pobal gathers details, keeps them tidy, and makes the next human step clear.</p>
+                <p className="mt-4 text-sm leading-7 text-stone">The point is not to replace pastoral judgement. Neri gathers details, keeps them tidy, and makes the next human step clear.</p>
               </div>
               <div className="soft-card rounded-[34px] p-6">
                 <h3 className="font-serif text-3xl leading-none text-pine">Trust by default</h3>
@@ -761,7 +888,7 @@
               <p className="text-xs font-bold uppercase tracking-[0.28em] text-wine">Parish forms and guidance</p>
               <h2 className="mt-3 font-serif text-5xl font-semibold leading-none text-pine">Digitise the process the parish already uses.</h2>
               <p className="mt-5 text-sm leading-7 text-stone">
-                Pobal should not force parishes to change their workflows. A parish can upload its existing forms, PDFs, guidance sheets, and policies. The app presents them beautifully to parishioners and keeps responses organised for the office.
+                Neri should not force parishes to change their workflows. A parish can upload its existing forms, PDFs, guidance sheets, and policies. The app presents them beautifully to parishioners and keeps responses organised for the office.
               </p>
             </div>
             <div className="soft-card rounded-[34px] p-6">
@@ -791,8 +918,8 @@
               This prototype is intentionally focused. It is ready to share with priests, parish secretaries, volunteers, and parish teams to learn what feels useful, what feels wrong, and what should come next.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a href="mailto:hello@pobal.ie?subject=Pobal feedback" className="rounded-full bg-candle px-6 py-3 text-sm font-bold text-[#271b18]">Share feedback</a>
-              <a href="mailto:hello@pobal.ie?subject=15 minute Pobal call" className="rounded-full border border-vellum/25 px-6 py-3 text-sm font-bold text-vellum">Book a 15-minute discovery call</a>
+              <a href="mailto:hello@neri.ie?subject=Neri feedback" className="rounded-full bg-candle px-6 py-3 text-sm font-bold text-[#271b18]">Share feedback</a>
+              <a href="mailto:hello@neri.ie?subject=15 minute Neri call" className="rounded-full border border-vellum/25 px-6 py-3 text-sm font-bold text-vellum">Book a 15-minute discovery call</a>
             </div>
           </div>
         </section>
