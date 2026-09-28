@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucy | Personal Website</title>
+  <meta name="description" content="A personal website for Lucy: work, writing, projects, and ways to get in touch.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,750&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f3ec;
+      --ink: #17201b;
+      --muted: #59645d;
+      --line: rgba(23, 32, 27, 0.14);
+      --sage: #8aa197;
+      --clay: #b96f57;
+      --butter: #f1cf73;
+      --sky: #9dc6d8;
+      --white: rgba(255, 255, 255, 0.72);
+      --shadow: 0 24px 80px rgba(34, 42, 38, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(120deg, rgba(157, 198, 216, 0.26), transparent 34rem),
+        linear-gradient(240deg, rgba(185, 111, 87, 0.16), transparent 32rem),
+        var(--paper);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(23, 32, 27, 0.08);
+      background: rgba(247, 243, 236, 0.78);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(1120px, calc(100% - 32px));
+      min-height: 68px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 750;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--ink);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      align-items: end;
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 126px 0 54px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: 48px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--clay);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Fraunces, Georgia, serif;
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 800px;
+      font-size: clamp(4.2rem, 12vw, 9.6rem);
+      line-height: 0.88;
+    }
+
+    .intro {
+      max-width: 620px;
+      margin: 28px 0 0;
+      color: #344039;
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      line-height: 1.55;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0 20px;
+      background: var(--ink);
+      color: #fffdf7;
+      font-weight: 800;
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.56);
+      color: var(--ink);
+    }
+
+    .portrait {
+      min-height: 560px;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(23, 32, 27, 0.02), rgba(23, 32, 27, 0.18)),
+        url("https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1100&q=80") center/cover;
+      box-shadow: var(--shadow);
+    }
+
+    .portrait-note {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      border-radius: 8px;
+      padding: 18px;
+      background: rgba(255, 253, 247, 0.78);
+      backdrop-filter: blur(18px);
+    }
+
+    .portrait-note p {
+      margin: 0;
+      color: #26302a;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    section {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 78px 0;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 0.55fr) minmax(0, 0.45fr);
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      line-height: 0.95;
+    }
+
+    .section-heading p,
+    .about p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .work-card,
+    .writing-card,
+    .contact-panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 16px 48px rgba(34, 42, 38, 0.08);
+    }
+
+    .work-card {
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 22px;
+    }
+
+    .work-card:nth-child(1) {
+      background: linear-gradient(160deg, rgba(138, 161, 151, 0.34), var(--white));
+    }
+
+    .work-card:nth-child(2) {
+      background: linear-gradient(160deg, rgba(241, 207, 115, 0.38), var(--white));
+    }
+
+    .work-card:nth-child(3) {
+      background: linear-gradient(160deg, rgba(157, 198, 216, 0.38), var(--white));
+    }
+
+    .tag {
+      width: fit-content;
+      border: 1px solid rgba(23, 32, 27, 0.16);
+      border-radius: 999px;
+      padding: 7px 10px;
+      color: #3f4a44;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      margin-top: 54px;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .work-card p,
+    .writing-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .about-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .about-list span {
+      display: block;
+      border-bottom: 1px solid var(--line);
+      padding: 0 0 12px;
+      color: #2f3933;
+      font-weight: 800;
+    }
+
+    .writing-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .writing-card {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 20px;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .writing-card time {
+      color: var(--clay);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .contact {
+      padding-bottom: 36px;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+      padding: 34px;
+      background:
+        linear-gradient(135deg, rgba(185, 111, 87, 0.22), rgba(157, 198, 216, 0.2)),
+        rgba(255, 255, 255, 0.66);
+    }
+
+    .contact-panel p {
+      max-width: 640px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    footer {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 26px 0 34px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        min-height: 62px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .section-heading,
+      .about,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 104px;
+      }
+
+      .portrait {
+        min-height: 440px;
+      }
+
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .writing-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .actions,
+      .button {
+        width: 100%;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .contact-panel {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#">Lucy</a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Personal website starter</p>
+          <h1>Thoughtful digital work, shaped with care.</h1>
+          <p class="intro">
+            I build useful things, write about what I am learning, and collect the projects that keep pulling my attention forward.
+          </p>
+          <div class="actions">
+            <a class="button" href="#work">See Work</a>
+            <a class="button secondary" href="mailto:hello@example.com">Get In Touch</a>
+          </div>
+        </div>
+        <div class="portrait" role="img" aria-label="A warm workspace scene">
+          <div class="portrait-note">
+            <p>Currently exploring product ideas, community tools, and small systems that make daily life feel less noisy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="section-heading">
+        <h2>Selected work</h2>
+        <p>Use these cards for projects, case studies, collaborations, client work, or experiments you want people to remember.</p>
+      </div>
+      <div class="work-grid">
+        <article class="work-card">
+          <span class="tag">Product</span>
+          <div>
+            <h3>Community App</h3>
+            <p>A digital space for local groups to share updates, coordinate events, and keep people connected between gatherings.</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <span class="tag">Research</span>
+          <div>
+            <h3>Field Notes</h3>
+            <p>A research archive collecting interviews, observations, and ideas from people building meaningful services.</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <span class="tag">Creative</span>
+          <div>
+            <h3>Studio Experiments</h3>
+            <p>Small visual and interactive sketches exploring texture, interface rhythm, typography, and storytelling.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>A little context</h2>
+      </div>
+      <div>
+        <p>
+          This is a flexible personal-site draft: calm, editorial, and easy to adapt. Replace the placeholder project names, add a real portrait or workspace image, and tune the contact links to match your public presence.
+        </p>
+        <div class="about-list" aria-label="Highlights" style="margin-top: 28px;">
+          <span>Building small, useful products</span>
+          <span>Writing about process and ideas</span>
+          <span>Open to thoughtful collaborations</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="writing">
+      <div class="section-heading">
+        <h2>Writing</h2>
+        <p>Swap these out for essays, newsletters, talks, notes, or updates. The layout works even if you only have a few entries.</p>
+      </div>
+      <div class="writing-list">
+        <article class="writing-card">
+          <time datetime="2026-06">June 2026</time>
+          <div>
+            <h3>Designing for attention, not addiction</h3>
+            <p>Notes on quieter interfaces, humane defaults, and tools that respect the shape of a real day.</p>
+          </div>
+        </article>
+        <article class="writing-card">
+          <time datetime="2026-05">May 2026</time>
+          <div>
+            <h3>What makes a project feel alive</h3>
+            <p>A short reflection on taste, iteration, and the moments when an idea starts pushing back.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="contact-panel">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Say hello</h2>
+          <p>For projects, conversations, invitations, or a generous nudge toward an interesting idea.</p>
+        </div>
+        <a class="button" href="mailto:hello@example.com">Email Me</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Built as a standalone personal website draft. Edit this file without touching the Neri prototype.</span>
+  </footer>
+</body>
+</html>
