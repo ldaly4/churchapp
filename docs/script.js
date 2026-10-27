@@ -14,10 +14,10 @@
   button.hidden = false;
   button.addEventListener('click', async () => {
     try {
-      await navigator.clipboard.writeText('hello@neri.ie');
+      await navigator.clipboard.writeText('lucy@neri.ie');
       status.textContent = 'Email address copied.';
     } catch {
-      status.textContent = 'Copy hello@neri.ie, or use the email link to get in touch.';
+      status.textContent = 'Copy lucy@neri.ie, or use the email link to get in touch.';
     }
   });
 })();
