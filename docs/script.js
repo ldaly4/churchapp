@@ -1,4 +1,13 @@
 (() => {
+  const reset = document.getElementById('reset-demo');
+  const demo = document.getElementById('parish-demo');
+  if (reset && demo) {
+    reset.hidden = false;
+    reset.addEventListener('click', () => {
+      demo.src = demo.getAttribute('src');
+      demo.focus();
+    });
+  }
   const button = document.getElementById('copy-email');
   const status = document.getElementById('copy-status');
   if (!button || !status || !navigator.clipboard || !window.isSecureContext) return;
