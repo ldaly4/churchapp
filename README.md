@@ -2,11 +2,13 @@
 
 The Neri launch website introduces the planned parish platform and invites parishes to a pilot conversation.
 
-Website: https://ldaly4.github.io/churchapp/
+Website: https://neri.ie/
 
 ## Edit and publish
 
 The live website source is in [docs/](docs/). Edit `index.html`, `styles.css`, `script.js` or the files in `assets/`, then commit and push to `main`. GitHub Pages publishes the `docs/` directory automatically. The `.nojekyll` file keeps these static files unchanged.
+
+The custom domain is declared in [docs/CNAME](docs/CNAME), at the root of the published source. It contains only `neri.ie`. Site and demo assets use relative paths and do not depend on a `/churchapp/` URL prefix. The domain's DNS must point to GitHub Pages for the custom URL to work.
 
 No build, package installation, accounts or payment services are required. Tester signup links open the [Neri survey on Tally](https://tally.so/r/bZZr1g) for parishioners, clergy and parish staff. Signup responses are collected by that survey; this static page does not store submissions. General contact remains `lucy@neri.ie`. Product previews use fictional parish content.
 
