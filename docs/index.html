@@ -4,43 +4,58 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#4D191B">
-<title>Neri | A modern home for your parish.</title>
-<meta name="description" content="A personalised parish app and a simpler parish office. Explore the Neri parish app here and help shape the pilot for Catholic parishes.">
-<meta property="og:title" content="Neri | A modern home for your parish.">
-<meta property="og:description" content="Prayer, news and ways to take part, all in one place. Try the parish app and help shape Neri.">
+<title>Neri | Bring your parish together.</title>
+<meta name="description" content="One place for parish groups, events, volunteering, news, giving, bookings and prayer. Explore Neri and sign up to help test it.">
+<meta property="og:title" content="Neri | Bring your parish together.">
+<meta property="og:description" content="Bring your parish together. Groups, events, volunteering, news, giving, bookings and prayer in one place. Help shape Neri.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/neri-window-olive.svg?v=10" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:wght@400;500;600&family=Uncial+Antiqua&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=14">
-<script src="script.js?v=7" defer></script>
+<link rel="stylesheet" href="styles.css?v=15">
+<script src="script.js?v=8" defer></script>
 </head>
 <body>
 <a href="#main" class="skip">Skip to content</a>
 <header class="welcome">
  <div class="wrap welcome-inner">
   <img class="signature" src="assets/neri-logo-cream.svg?v=10" width="120" height="190" alt="Neri">
+  <p class="header-line">Bring your parish together.</p>
+  <a class="header-signup" href="https://tally.so/r/bZZr1g">Sign up to test Neri</a>
  </div>
 </header>
 <main id="main">
  <section class="introduction section" aria-labelledby="intro-title">
   <div class="wrap intro-grid"><div class="intro-sheet">
-   <div class="intro-copy"><h1 id="intro-title">More than Sunday.</h1><p>Sunday Mass is the heart of parish life. The week in between is where people drift. Neri keeps your parish in their hands every day: the day’s Gospel, a novena to pray, the notice about Thursday’s coffee morning, a candle lit from Boston for a mother at home. And all of it leads back to the altar.</p></div>
-   <ul class="intro-audiences"><li><strong>For the faithful:</strong> a reason to open the parish every day, not just on Sunday.</li><li><strong>For those who’ve drifted:</strong> an easy way back in, with Mass times, a guide to the Mass and a welcome.</li><li><strong>For those who can’t come:</strong> people abroad, housebound or unwell stay part of the parish.</li></ul>
+   <div class="intro-copy"><h1 id="intro-title">Parish life is more than Sunday.</h1><p>The choir, the coffee morning, the St Vincent de Paul, the youth group, the families preparing for Communion, the people abroad who still call it home. A parish is a community, and today it's held together by a newsletter, a noticeboard and a few phone numbers. Neri gives it one place to gather.</p></div>
+   <ul class="intro-audiences"><li><strong>For the faithful:</strong> news, events and prayer in their pocket, and a simple way to get involved.</li><li><strong>For parish groups and volunteers:</strong> rotas, sign-ups and messages without the endless group chats.</li><li><strong>For the parish office:</strong> bookings, notices and giving in one place, posted once.</li></ul>
    </div>
   </div>
  </section>
- <section class="parishioners section" id="parish-app" aria-labelledby="app-title">
+ <section class="parish-platform section" aria-labelledby="platform-title">
+  <div class="wrap feature-notice">
+   <h2 id="platform-title">Everything your parish runs, in one place.</h2>
+   <ul class="feature-list">
+    <li><h3>Groups and ministries</h3><p>Choir, SVP, youth, prayer groups, each with its own page and members.</p></li>
+    <li><h3>Events and sign-ups</h3><p>Coffee mornings, pilgrimages, clean-ups, with numbers at a glance.</p></li>
+    <li><h3>Volunteer rotas</h3><p>Readers, ministers of the Eucharist, collectors, flowers.</p></li>
+    <li><h3>News and notices</h3><p>Post once, and it reaches phones, the website and the noticeboard.</p></li>
+    <li><h3>Giving and fundraising</h3><p>Weekly offerings, appeals, the parish draw, and tax relief on gifts.</p></li>
+    <li><h3>Bookings</h3><p>Sacraments, Mass intentions and the parish hall.</p></li>
+    <li><h3>Prayer</h3><p>The daily Gospel, novenas and candles, for those near and far.</p></li>
+   </ul>
+  </div>
+ </section>
+ <section class="faithful section" id="parish-app" aria-labelledby="app-title">
   <div class="wrap parish-grid">
    <figure class="demo-figure">
     <p class="demo-instruction" id="demo-instruction"><strong>This phone is interactive.</strong><span>Click or tap the app. Scroll to explore it.</span></p>
-    <div class="phone-shell"><div class="phone-speaker" aria-hidden="true"></div><iframe id="parish-demo" src="demo/index.html?v=5" title="Clickable Neri parish app prototype for the Church of the Assumption, Delvin" aria-describedby="demo-instruction" loading="lazy" width="390" height="780" referrerpolicy="same-origin"></iframe></div>
+    <div class="phone-shell"><div class="phone-speaker" aria-hidden="true"></div><iframe id="parish-demo" src="demo/index.html?v=6" title="Clickable Neri parish app prototype for the Church of the Assumption, Delvin" aria-describedby="demo-instruction" loading="lazy" width="390" height="780" referrerpolicy="same-origin"></iframe></div>
     <figcaption><button type="button" id="reset-demo" hidden>Start again <span aria-hidden="true">↻</span></button></figcaption>
    </figure>
-   <div class="parish-copy"><h2 id="app-title">For parishioners</h2><p>A mobile app and website entirely personalised to your parish, with your church, your priest and your community.</p>
-    <ul class="parish-benefits"><li>Find Mass times and parish news</li><li>Light a candle or pray a novena</li><li>Join events, groups and volunteering</li><li>Arrange sacraments and parish enquiries</li><li>Give to your parish from wherever you are</li></ul>
-    <p class="mass-reminder"><em>Everything leads back to Sunday Mass.</em></p>
+   <div class="parish-copy"><h2 id="app-title">For the faithful</h2><p>Their own parish in their pocket, with your church, your priest and your people.</p>
+    <ul class="parish-benefits"><li>See what's on and sign up in a tap</li><li>Join a group or volunteer</li><li>Read parish news and notices</li><li>Light a candle or pray a novena</li><li>Give to the parish from wherever they are</li></ul>
     <p class="demo-prompt">Try the example on the left. Open <strong>Pray</strong> to light a candle, or <strong>The Parish</strong> to read the noticeboard.</p>
     <p class="prototype-note">Example app for the Church of the Assumption, Delvin. Times and events are illustrative. Requests and payments are simulated. Please use made-up details.</p>
    </div>
@@ -48,7 +63,7 @@
  </section>
  <section class="office section" aria-labelledby="office-title">
   <div class="wrap office-grid">
-   <div class="office-copy"><h2 id="office-title">For parish secretaries<br>and administrators</h2><p>The parish office juggles calls, emails, the diary and the newsletter. Neri brings it into one place, so your team spends less time chasing information.</p><ul class="office-benefits"><li>Manage bookings and parish enquiries</li><li>Review and schedule Mass intentions</li><li>Post news and notices once</li><li>Keep in touch with groups and volunteers</li><li>Organise giving and donor authorisations</li></ul></div>
+   <div class="office-copy"><h2 id="office-title">For the parish office</h2><p>The parish office juggles calls, emails, the diary and the newsletter. Neri brings it into one place, so your team spends less time chasing information.</p><ul class="office-benefits"><li>Manage bookings and parish enquiries</li><li>Review and schedule Mass intentions</li><li>Post news and notices once</li><li>Keep in touch with groups and volunteers</li><li>Organise giving and donor authorisations</li></ul></div>
    <figure class="office-preview" aria-label="Phone calls, emails, the parish diary, Facebook posts, the newsletter and the sacristy door brought together in Neri.">
     <div class="office-channels">
      <ul class="channel-list"><li>Phone calls</li><li>Emails</li><li>The parish diary</li><li>Facebook posts</li><li>The newsletter</li><li>The sacristy door</li></ul>
@@ -67,15 +82,31 @@
    <h2 id="invitation-title">Be one of our first parishes.</h2>
    <p class="trial-intro">We’re looking for a small number of parishes to help shape Neri. We set everything up with you.</p>
    <ol class="trial-steps">
-    <li><span class="step-number">01</span><h3>Start with a<br>conversation</h3><p>Tell us about your parish, what works well and what takes too much time.</p></li>
-    <li><span class="step-number">02</span><h3>Make it<br>your own</h3><p>We’ll work with you on your churches, Mass times, parish news and local identity.</p></li>
-    <li><span class="step-number">03</span><h3>Shape what<br>comes next</h3><p>Try it with your community. Your team’s experience will help guide what we build.</p></li>
+    <li><span class="step-number">01</span><h3>Start with a <br>conversation</h3><p>Tell us about your parish, what works well and what takes too much time.</p></li>
+    <li><span class="step-number">02</span><h3>Make it <br>your own</h3><p>We’ll work with you on your churches, Mass times, parish news and local identity.</p></li>
+    <li><span class="step-number">03</span><h3>Shape what <br>comes next</h3><p>Try it with your community. Your team’s experience will help guide what we build.</p></li>
    </ol>
    <a class="signup-link" href="https://tally.so/r/bZZr1g">Sign up to test Neri <span aria-hidden="true">↗</span></a>
-   <p class="tester-invitation">Parishioners, clergy and parish staff are all welcome.</p>
+   <p class="tester-invitation">The faithful, clergy and parish staff are all welcome.</p>
   </div>
  </section>
 </main>
-<footer class="closing" id="pilot"><div class="wrap closing-inner"><img src="assets/neri-logo-cream.svg?v=10" width="78" height="124" alt="Neri"><p class="campaign">More than Sunday.</p><a class="closing-cta" href="https://tally.so/r/bZZr1g">Sign up to test Neri <span aria-hidden="true">↗</span></a><div class="email-row"><a href="mailto:lucy@neri.ie">lucy@neri.ie</a><button type="button" id="copy-email" hidden>Copy email</button></div><p id="copy-status" role="status" aria-live="polite"></p><p class="footer-note">© 2026 Neri</p></div></footer>
+<footer class="closing" id="pilot">
+ <div class="wrap closing-inner">
+  <img src="assets/neri-logo-cream.svg?v=10" width="78" height="124" alt="Neri">
+  <p class="campaign">Bring your parish together.</p>
+  <a class="closing-cta" href="https://tally.so/r/bZZr1g">Sign up to test Neri <span aria-hidden="true">↗</span></a>
+  <div class="social-row">
+   <a href="mailto:lucy@neri.ie" aria-label="Email us at lucy@neri.ie">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>
+   </a>
+   <a href="https://www.instagram.com/neriforparishes/" aria-label="Neri on Instagram" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
+   </a>
+  </div>
+  <p class="footer-email"><a href="mailto:lucy@neri.ie">lucy@neri.ie</a></p>
+  <p class="footer-note">© 2026 Neri</p>
+ </div>
+</footer>
 </body>
 </html>

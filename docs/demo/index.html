@@ -11,7 +11,7 @@
 <style>
 /* Layout: one phone holding an illuminated parish. Vellum pages, burgundy chapters, thick inked rules, initials and spirals from Irish manuscripts. */
 :root{
-  --burgundy:#411313; --burgundy-deep:#2e0d0d; --olive:#1d5d15; --olive-deep:#123a0d; --moss:#7D7A55;
+  --burgundy:#411313; --burgundy-deep:#2e0d0d; --olive:#444227; --olive-deep:#35331e; --moss:#7D7A55;
   --gilt:#9A7B2F; --gold:#C9A85A; --vellum:#f8ead7; --vellum-hi:#fff5e8; --inkline:#2B1C12;
   --ink:#1E1611; --muted:#5C4F42; --cream:#f8ead7; --cream-muted:#DCCFB8; --stage:#231D15;
   --cap:"Cinzel", "Trajan Pro", Georgia, serif;
@@ -1082,7 +1082,7 @@ $("#give-form").addEventListener("submit", (e) => {
 
 /* prayer cards */
 const CARDS = [
-  { k: "think", label: "Thinking of you", init: "T", col: "#1d5d15", title: "Thinking of You", text: "Holding you in my heart and in my prayers today.", verse: "The Lord gives strength to his people. Psalm 29:11" },
+  { k: "think", label: "Thinking of you", init: "T", col: "#444227", title: "Thinking of You", text: "Holding you in my heart and in my prayers today.", verse: "The Lord gives strength to his people. Psalm 29:11" },
   { k: "brigid", label: "St Brigid", init: "B", col: "#9A7B2F", title: "St Brigid", text: "May St Brigid spread her cloak over you, and keep you safe and well.", verse: "Mary of the Gael, pray for us." },
   { k: "jude", label: "St Jude", init: "J", col: "#411313", title: "St Jude", text: "Through St Jude, friend in hard times, I am praying that things will turn for you.", verse: "St Jude, pray for us." },
   { k: "anthony", label: "St Anthony", init: "A", col: "#7D7A55", title: "St Anthony", text: "May St Anthony help you find what you are searching for.", verse: "St Anthony, pray for us." },
@@ -1102,7 +1102,7 @@ function drawCard(cv, card, to, from) {
   if (to) { c.fillStyle = "#5C4F42"; c.font = "600 26px Cinzel, Georgia, serif"; c.fillText("For " + to, W / 2, 150); }
   const bx = W / 2 - 60, by = 182; c.fillStyle = card.col; c.fillRect(bx, by, 120, 120); c.strokeStyle = "#C9A85A"; c.lineWidth = 7; c.strokeRect(bx, by, 120, 120); c.strokeStyle = "#2B1C12"; c.lineWidth = 3; c.strokeRect(bx - 5, by - 5, 130, 130);
   c.fillStyle = "#f8ead7"; c.font = "88px 'Uncial Antiqua', Cinzel, serif"; c.textBaseline = "middle"; c.fillText(card.init, W / 2, by + 64); c.textBaseline = "alphabetic";
-  c.fillStyle = "#1d5d15"; c.font = "600 40px Cinzel, Georgia, serif"; c.fillText(card.title, W / 2, 364);
+  c.fillStyle = "#444227"; c.font = "600 40px Cinzel, Georgia, serif"; c.fillText(card.title, W / 2, 364);
   c.fillStyle = "#2e0d0d"; c.font = "italic 600 36px 'Cormorant Garamond', Georgia, serif";
   const lines = wrap(c, card.text, 440); lines.forEach((l, i) => c.fillText(l, W / 2, 430 + i * 44));
   let y = 430 + lines.length * 44 + 18; c.fillStyle = "#C9A85A"; c.fillRect(W / 2 - 60, y, 120, 4); y += 44;

@@ -8,16 +8,4 @@
       demo.focus();
     });
   }
-  const button = document.getElementById('copy-email');
-  const status = document.getElementById('copy-status');
-  if (!button || !status || !navigator.clipboard || !window.isSecureContext) return;
-  button.hidden = false;
-  button.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText('lucy@neri.ie');
-      status.textContent = 'Email address copied.';
-    } catch {
-      status.textContent = 'Copy lucy@neri.ie, or use the email link to get in touch.';
-    }
-  });
 })();
