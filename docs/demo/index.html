@@ -198,9 +198,7 @@ h1,h2,h3{margin:0;font-weight:600;text-wrap:balance}
 .days{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:4px;margin:14px 0}
 .day{display:flex;flex-direction:column;align-items:center;gap:2px;font-family:var(--ui);font-size:11.5px;font-weight:700;color:var(--muted)}
 .day svg{width:22px;height:30px}
-.day.lit svg .f{fill:#F2A43A}
-.day.lit svg .c{fill:#FFF3C8}
-.day.lit{color:var(--burgundy);--ff:#F2A43A;--fc:#FFF3C8}
+.day.prayed{color:var(--burgundy);--petals:#C98283;--petal-line:#7B4144;--flower-centre:#D1B46A;--flower-stem:#444227}
 .nov-list{display:flex;flex-direction:column}
 .nov-item{display:flex;align-items:center;gap:14px;width:100%;padding:13px 0;background:none;border:0;border-top:2.5px solid rgba(201,168,90,.45);color:var(--cream);text-align:left}
 .nov-item b{display:block;font-family:var(--cap);font-size:17px;color:var(--cream)}
@@ -382,7 +380,11 @@ table.times tr.today td,table.times tr.today th{background:rgba(201,168,90,.22)}
   <symbol id="chev-r" viewBox="0 0 24 24"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2.6"/></symbol>
   <symbol id="church-line" viewBox="0 0 140 100"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M14 96V40H34V96"/><path d="M14 54H34"/><path d="M13 40 15 30 17 40"/><path d="M31 40 33 30 35 40"/><path d="M17 40 24 6 31 40"/><path d="M24 6V0M21.5 2.5H26.5"/><path d="M18 51V47.4Q18 45 20.0 44.2Q22 45 22 47.4V51"/><path d="M26 51V47.4Q26 45 28.0 44.2Q30 45 30 47.4V51"/><path d="M21 74V67.6Q21 64 24.0 62.8Q27 64 27 67.6V74"/><path d="M34 96V64L48 50 62 64V96"/><path d="M42 84V73.2Q42 66 48.0 63.6Q54 66 54 73.2V84"/><path d="M48 66V84"/><path d="M45 96V91.6Q45 88 48.0 86.8Q51 88 51 91.6V96"/><path d="M60 64 62 54 64 64"/><path d="M55 57H116L120 72"/><path d="M62 72H120"/><path d="M120 72V96"/><path d="M69 90V83.6Q69 80 72.0 78.8Q75 80 75 83.6V90"/><path d="M85 90V83.6Q85 80 88.0 78.8Q91 80 91 83.6V90"/><path d="M101 90V83.6Q101 80 104.0 78.8Q107 80 107 83.6V90"/><path d="M77 72 79 63 81 72"/><path d="M93 72 95 63 97 72"/><path d="M120 96V77L128 67 136 77V96"/><path d="M125 92V85.6Q125 82 128.0 80.8Q131 82 131 85.6V92"/><path d="M4 96H138"/></g></symbol>
-  <symbol id="day-flame" viewBox="0 0 22 30"><path d="M8 29h6v-7H8z" fill="#E9DDC4" stroke="#2B1C12" stroke-width="1.8"/><path class="f" d="M11 2c3 5 6 8 6 12a6 6 0 0 1-12 0c0-4 3-7 6-12z" fill="var(--ff,none)" stroke="#2B1C12" stroke-width="1.8" stroke-linejoin="round"/><path class="c" d="M11 10c1.5 2.5 2.6 4 2.6 5.6a2.6 2.6 0 0 1-5.2 0c0-1.6 1.1-3.1 2.6-5.6z" fill="var(--fc,none)"/></symbol>
+  <symbol id="day-flower" viewBox="0 0 22 30">
+    <path d="M11 16v12m0-4c-4 0-6-3-6-6 4 0 6 3 6 6zm0-4c4 0 6-3 6-6-4 0-6 3-6 6z" fill="var(--flower-stem,none)" stroke="var(--flower-stem,#A79E81)" stroke-width="1.3" stroke-linejoin="round"/>
+    <path d="M7 5c-1-5 9-5 8 0 5-2 8 6 3 8 3 4-4 9-7 5-3 4-10-1-7-5-5-2-2-10 3-8z" fill="var(--petals,none)" stroke="var(--petal-line,#A79E81)" stroke-width="1.4" stroke-linejoin="round"/>
+    <circle cx="11" cy="10" r="3" fill="var(--flower-centre,none)" stroke="var(--petal-line,#A79E81)" stroke-width="1.3"/>
+  </symbol>
 </svg>
 
 
@@ -888,7 +890,7 @@ function renderNovenas() {
   if (!active.length) { box.innerHTML = `<p class="small" style="color:var(--cream-muted)">You have no novena under way. Choose one below to begin.</p>`; }
   else box.innerHTML = active.map((a, k) => {
     const n = NOVENAS.find((x) => x.id === a.id);
-    const days = Array.from({ length: 9 }, (_, i) => `<span class="day ${i < a.day ? "lit" : ""}"><svg viewBox="0 0 22 30"><use href="#day-flame"/></svg>${i + 1}</span>`).join("");
+    const days = Array.from({ length: 9 }, (_, i) => `<span class="day ${i < a.day ? "prayed" : ""}"><svg viewBox="0 0 22 30" aria-hidden="true"><use href="#day-flower"/></svg>${i + 1}</span>`).join("");
     const finished = a.day >= 9;
     return `<article class="novena"><h3>${esc(n.name)}</h3><p class="for">${esc(a.for || "For my intention")} · Day ${Math.min(a.day + (finished ? 0 : 1), 9)} of 9</p><div class="days" aria-label="${a.day} of 9 days prayed">${days}</div>${finished ? `<p class="small" style="color:var(--olive);font-weight:600">Novena complete. Thank you for praying.</p>` : `<button class="btn red full" data-pray="${k}">Pray day ${a.day + 1}</button>`}</article>`;
   }).join("");
@@ -912,7 +914,7 @@ $("#s-pray").addEventListener("click", (e) => {
   if (p) {
     const a = active[+p.dataset.pray], n = NOVENAS.find((x) => x.id === a.id);
     openSheet(`<p class="rubric">${esc(n.name)} · Day ${a.day + 1} of 9</p><h2 id="sheet-title">Take a quiet moment</h2><p class="small">Hold ${esc((a.for || "your intention").replace(/^for /i, ""))} in your heart, then pray:</p><p class="prayer-text">${esc(n.prayer)}</p><button class="btn red full" id="amen">Amen. Mark day ${a.day + 1} as prayed</button><button class="btn line full" data-close>Not now</button>`, (s) => {
-      $("#amen", s).addEventListener("click", () => { a.day = Math.min(9, a.day + 1); renderNovenas(); closeSheet(); toast(a.day >= 9 ? "Novena complete" : "Day " + a.day + " prayed. A light is lit."); });
+      $("#amen", s).addEventListener("click", () => { a.day = Math.min(9, a.day + 1); renderNovenas(); closeSheet(); toast(a.day >= 9 ? "Novena complete" : "Day " + a.day + " prayed. A flower blooms."); });
     });
     return;
   }
@@ -921,7 +923,7 @@ $("#s-pray").addEventListener("click", (e) => {
 });
 function beginSheet(id, issue) {
     const n = NOVENAS.find((x) => x.id === id);
-    openSheet(`<p class="rubric">${issue ? "For " + esc(issue.toLowerCase()) : "Nine days of prayer"}</p><h2 id="sheet-title">${issue ? "We suggest the " : ""}${esc(n.name)}</h2><p class="small">${esc(n.about)} Pray once a day for nine days. We'll keep count for you, and a light is lit for each day.</p><label class="field" for="nov-for">Who are you praying for?<input id="nov-for" placeholder="e.g. For my brother in hospital" autofocus></label><p class="small muted">Private. Only you see this.</p><button class="btn red full" id="begin">Begin the novena</button><details class="prayer"><summary>Choose a different novena</summary><div style="padding:0 16px 14px;display:flex;flex-direction:column;gap:8px">${NOVENAS.filter((x) => x.id !== n.id).map((x) => `<button class="btn line full" data-other="${x.id}">${esc(x.name)}</button>`).join("")}</div></details>`, (s) => {
+    openSheet(`<p class="rubric">${issue ? "For " + esc(issue.toLowerCase()) : "Nine days of prayer"}</p><h2 id="sheet-title">${issue ? "We suggest the " : ""}${esc(n.name)}</h2><p class="small">${esc(n.about)} Pray once a day for nine days. We'll keep count for you, and a flower blooms for each day you pray.</p><label class="field" for="nov-for">Who are you praying for?<input id="nov-for" placeholder="e.g. For my brother in hospital" autofocus></label><p class="small muted">Private. Only you see this.</p><button class="btn red full" id="begin">Begin the novena</button><details class="prayer"><summary>Choose a different novena</summary><div style="padding:0 16px 14px;display:flex;flex-direction:column;gap:8px">${NOVENAS.filter((x) => x.id !== n.id).map((x) => `<button class="btn line full" data-other="${x.id}">${esc(x.name)}</button>`).join("")}</div></details>`, (s) => {
       $$("[data-other]", s).forEach((o) => o.addEventListener("click", () => beginSheet(o.dataset.other, "")));
       $("#begin", s).addEventListener("click", () => { const v = $("#nov-for", s).value.trim(); active.unshift({ id: n.id, for: v ? (/^for /i.test(v) ? v : "For " + v) : "", day: 0 }); renderNovenas(); closeSheet(); toast("Novena begun"); });
     });
