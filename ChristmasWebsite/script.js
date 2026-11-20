@@ -5,6 +5,12 @@ const APPS_SCRIPT_URL = "";
 const POSTED_CARD_DEADLINE = "2026-12-10";
 const EXTRA_FLAME_FRAMES = ["images/flame-2.png", "images/flame-3.png"];
 
+const signUp = document.querySelector(".painting-link");
+const cardDialog = document.querySelector("#card-dialog");
+
+signUp.addEventListener("click", () => cardDialog.showModal());
+cardDialog.querySelector(".dialog-close").addEventListener("click", () => cardDialog.close());
+
 const deadline = document.querySelector("#posted-card-deadline");
 deadline.dateTime = POSTED_CARD_DEADLINE;
 deadline.textContent = new Intl.DateTimeFormat("en-IE", {
