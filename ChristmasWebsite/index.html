@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sign up for a Christmas card from Lucy and Patrick, by post or by email.">
+  <title>Christmas with Lucy &amp; Patrick</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&amp;family=Source+Sans+3:wght@400;600&amp;display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="hearth">
+      <div class="painting">
+        <!-- Replace the fallback src and dimensions when the final fireplace.png is ready. -->
+        <img class="room" src="images/fireplace-placeholder.webp" srcset="images/fireplace-placeholder-small.webp 540w, images/fireplace-placeholder.webp 862w" sizes="(max-width: 704px) 100vw, 704px" width="862" height="1150" alt="A Victorian Christmas fireplace with four handmade stockings, candlelight and a framed invitation to sign up for a Christmas card." fetchpriority="high">
+        <div class="fire" aria-hidden="true">
+          <img class="flame is-lit" src="images/flame-1.png" width="192" height="150" alt="">
+        </div>
+      </div>
+    </header>
+
+    <section class="invitation" aria-labelledby="invitation-title">
+      <div class="ornament" aria-hidden="true"><span>✦</span></div>
+      <h1 id="invitation-title">A Christmas card<br class="small-break"> from us to you</h1>
+      <p class="intro">We’d love to send you a card this Christmas.</p>
+      <div class="postboxes" role="group" aria-label="Choose how to receive your card">
+        <button class="postbox postbox-letter" type="button" aria-expanded="false" aria-controls="letter-panel">
+          <img src="images/postbox-letter.png" width="180" height="190" alt="" loading="lazy" decoding="async">
+          <span class="postbox-label">Letter</span>
+          <span class="postbox-detail">By post</span>
+        </button>
+        <button class="postbox postbox-email" type="button" aria-expanded="false" aria-controls="email-panel">
+          <img src="images/postbox-email.png" width="180" height="190" alt="" loading="lazy" decoding="async">
+          <span class="postbox-label">Email</span>
+          <span class="postbox-detail">An e-card</span>
+        </button>
+      </div>
+      <p class="deadline">Sign up by <time id="posted-card-deadline"></time> for a posted card.</p>
+      <noscript><p>Enable JavaScript to sign up for a card.</p></noscript>
+
+      <section class="card-panel" id="letter-panel" aria-labelledby="letter-title" hidden>
+        <h2 id="letter-title" tabindex="-1">A card by post</h2>
+        <form method="post" novalidate>
+          <input type="hidden" name="type" value="letter">
+          <div hidden><label>Leave blank <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="field">
+            <label for="letter-name">Name(s) to write on the envelope <span class="required" aria-hidden="true">*</span></label>
+            <input id="letter-name" name="name" autocomplete="section-letter name" required maxlength="150" aria-describedby="letter-name-error">
+            <p class="field-error" id="letter-name-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="letter-address1">Address line 1 <span class="required" aria-hidden="true">*</span></label>
+            <input id="letter-address1" name="address1" autocomplete="section-letter address-line1" required maxlength="180" aria-describedby="letter-address1-error">
+            <p class="field-error" id="letter-address1-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="letter-address2">Address line 2</label>
+            <input id="letter-address2" name="address2" autocomplete="section-letter address-line2" maxlength="180">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="letter-town">Town or city <span class="required" aria-hidden="true">*</span></label>
+              <input id="letter-town" name="town" autocomplete="section-letter address-level2" required maxlength="100" aria-describedby="letter-town-error">
+              <p class="field-error" id="letter-town-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="letter-county">County or region</label>
+              <input id="letter-county" name="county" autocomplete="section-letter address-level1" maxlength="100">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="letter-country">Country</label>
+              <input id="letter-country" name="country" autocomplete="section-letter country-name" value="Ireland" maxlength="100">
+            </div>
+            <div class="field">
+              <label for="letter-eircode">Eircode or postcode</label>
+              <input id="letter-eircode" name="eircode" autocomplete="section-letter postal-code" maxlength="30">
+            </div>
+          </div>
+          <div class="field">
+            <label for="letter-email">Email <span class="optional">(optional)</span></label>
+            <input id="letter-email" type="email" name="email" autocomplete="section-letter email" maxlength="254" aria-describedby="letter-email-hint letter-email-error">
+            <p class="hint" id="letter-email-hint">We can use it to check whether your address changes next year.</p>
+            <p class="field-error" id="letter-email-error" aria-live="polite"></p>
+          </div>
+          <label class="checkbox"><input type="checkbox" name="irish" value="yes"> <span>I’d like my card as Gaeilge</span></label>
+          <div class="field">
+            <label for="letter-note">A short note to us <span class="optional">(optional)</span></label>
+            <textarea id="letter-note" name="note" rows="3" maxlength="500"></textarea>
+          </div>
+          <p class="privacy">Only Lucy and Patrick will see your details.</p>
+          <button class="submit" type="submit">Request a posted card</button>
+          <p class="submit-status" role="status"></p>
+        </form>
+        <p class="thanks" tabindex="-1" hidden>It’s in the post. Thank you!</p>
+      </section>
+
+      <section class="card-panel" id="email-panel" aria-labelledby="email-title" hidden>
+        <h2 id="email-title" tabindex="-1">A card by email</h2>
+        <form method="post" novalidate>
+          <input type="hidden" name="type" value="email">
+          <div hidden><label>Leave blank <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="field">
+            <label for="email-name">Name(s) <span class="required" aria-hidden="true">*</span></label>
+            <input id="email-name" name="name" autocomplete="section-email name" required maxlength="150" aria-describedby="email-name-error">
+            <p class="field-error" id="email-name-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="email-address">Email <span class="required" aria-hidden="true">*</span></label>
+            <input id="email-address" type="email" name="email" autocomplete="section-email email" required maxlength="254" aria-describedby="email-address-error">
+            <p class="field-error" id="email-address-error" aria-live="polite"></p>
+          </div>
+          <label class="checkbox"><input type="checkbox" name="irish" value="yes"> <span>I’d like my card as Gaeilge</span></label>
+          <div class="field">
+            <label for="email-note">A short note to us <span class="optional">(optional)</span></label>
+            <textarea id="email-note" name="note" rows="3" maxlength="500"></textarea>
+          </div>
+          <p class="privacy">Only Lucy and Patrick will see your details.</p>
+          <button class="submit" type="submit">Request an e-card</button>
+          <p class="submit-status" role="status"></p>
+        </form>
+        <p class="thanks" tabindex="-1" hidden>It’s in the post. Thank you!</p>
+      </section>
+    </section>
+
+    <div class="details">
+      <section aria-labelledby="about-title">
+        <h2 id="about-title">About us</h2>
+        <!-- Replace these placeholder website URLs. -->
+        <ul class="personal-links">
+          <li><a href="https://example.com/lucy">Lucy’s site</a></li>
+          <li><a href="https://example.com/patrick">Patrick’s site</a></li>
+        </ul>
+      </section>
+      <section aria-labelledby="events-title">
+        <h2 id="events-title">Events</h2>
+        <!-- Edit the placeholder events together here. -->
+        <ul class="events">
+          <li>Christmas market <span>Details to come</span></li>
+          <li>Carols by candlelight <span>Details to come</span></li>
+          <li>Festive get-together <span>Details to come</span></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="ornament" aria-hidden="true"><span>✦</span></div>
+    <p>With love,<br><span>Lucy &amp; Patrick</span></p>
+  </footer>
+</body>
+</html>
