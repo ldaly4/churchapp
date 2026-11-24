@@ -3,52 +3,193 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#102d29">
-  <meta name="description" content="Welcome to Seagais.">
-  <title>Seagais</title>
+  <meta name="theme-color" content="#111687">
+  <meta name="description" content="Seagais. Technology for Nature.">
+  <title>Seagais — Technology for Nature</title>
   <style>
     :root {
       color-scheme: dark;
-      font-family: system-ui, sans-serif;
-      background: #102d29;
-      color: #f3f6eb;
+      background-color: #111687;
+      color: #fff;
     }
 
     body {
+      margin: 0;
+    }
+
+    .landing {
+      position: relative;
+      display: grid;
+      justify-items: center;
+      align-items: start;
       box-sizing: border-box;
       min-height: 100svh;
+      overflow: clip;
+      padding: 42.7svh 1rem 3rem;
+      background: linear-gradient(#1810561a, #1810561a),
+        #111687 url("assets/water.jpg") center top / cover no-repeat;
+    }
+
+    .brand {
+      width: min(41.8vw, 76svh);
+      margin-inline-end: 2.8vw;
+      text-align: center;
+    }
+
+    .brand h1 {
       margin: 0;
-      padding: clamp(1.5rem, 7vw, 7rem);
-      display: grid;
-      align-items: center;
-      background: radial-gradient(ellipse at top right, #23584d, transparent 65%);
     }
 
-    main {
-      width: min(100%, 70rem);
-      margin-inline: auto;
-      padding-block: clamp(2rem, 8vw, 8rem);
-      border-block: 1px solid #70938a;
+    .wordmark {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3.9;
     }
 
-    h1 {
-      margin: 0;
-      font: 400 clamp(3.25rem, 15vw, 11rem) / 1 Georgia, serif;
-      letter-spacing: -0.06em;
+    .tagline {
+      position: relative;
+      left: 50%;
+      width: max-content;
+      margin: 4.75svh 0 0;
+      transform: translateX(-50%);
+      font: 400 min(4.52vw, 8.22svh) / 1.1 Baskerville, "Times New Roman", serif;
+      white-space: nowrap;
     }
 
-    p {
-      margin: 1.25rem 0 0;
-      color: #cadbd2;
-      font-size: 1.125rem;
-      line-height: 1.5;
+    .carousel {
+      --frame-height: max(3.5rem, 5.78vw);
+      --frame-gap: max(1.15rem, 3.2vw);
+      position: absolute;
+      inset: 4.35svh 0 auto;
+    }
+
+    .carousel-window {
+      overflow: hidden;
+    }
+
+    .fish-track,
+    .fish-group {
+      display: flex;
+      width: max-content;
+    }
+
+    .fish-track {
+      margin-inline-start: calc(var(--frame-height) * -1.57);
+      animation: swim-left 88s linear infinite;
+    }
+
+    .fish-group {
+      gap: var(--frame-gap);
+      padding-inline-end: var(--frame-gap);
+    }
+
+    .fish {
+      display: block;
+      box-sizing: border-box;
+      width: auto;
+      height: var(--frame-height);
+      padding: 0.1rem;
+      border: 2px solid #fff;
+      object-fit: contain;
+    }
+
+    .fish--trout { aspect-ratio: 3.14; }
+    .fish--minnow { aspect-ratio: 2.68; }
+    .fish--perch { aspect-ratio: 2.12; }
+    .fish--eel { aspect-ratio: 2.08; }
+
+    @keyframes swim-left {
+      to { transform: translateX(calc(-100% / 3)); }
+    }
+
+    .carousel[data-paused] .fish-track {
+      animation-play-state: paused;
+    }
+
+    .carousel-toggle {
+      position: absolute;
+      top: calc(100% + 0.4rem);
+      right: 1rem;
+      width: 2.75rem;
+      height: 2.75rem;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      background: #111687;
+      color: #fff;
+      font: 1rem / 1 system-ui, sans-serif;
+      cursor: pointer;
+      opacity: 0;
+    }
+
+    .carousel:hover .carousel-toggle,
+    .carousel-toggle:focus,
+    .carousel[data-paused] .carousel-toggle {
+      opacity: 1;
+    }
+
+    @media (max-width: 700px) {
+      .brand {
+        width: min(83vw, 94svh);
+        margin-inline-end: 0;
+      }
+
+      .tagline {
+        margin-top: 3.5svh;
+        font-size: min(8.5vw, 9.6svh);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fish-track { animation: none; }
+      .carousel-toggle { display: none; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Seagais</h1>
-    <p>Welcome to Seagais.</p>
+  <main class="landing">
+    <div class="carousel">
+      <div class="carousel-window" aria-hidden="true">
+        <div class="fish-track">
+          <div class="fish-group">
+            <img class="fish fish--trout" src="assets/trout.png" alt="">
+            <img class="fish fish--minnow" src="assets/minnow.png" alt="">
+            <img class="fish fish--perch" src="assets/perch.png" alt="">
+            <img class="fish fish--eel" src="assets/eel.png" alt="">
+          </div>
+          <div class="fish-group">
+            <img class="fish fish--trout" src="assets/trout.png" alt="">
+            <img class="fish fish--minnow" src="assets/minnow.png" alt="">
+            <img class="fish fish--perch" src="assets/perch.png" alt="">
+            <img class="fish fish--eel" src="assets/eel.png" alt="">
+          </div>
+          <div class="fish-group">
+            <img class="fish fish--trout" src="assets/trout.png" alt="">
+            <img class="fish fish--minnow" src="assets/minnow.png" alt="">
+            <img class="fish fish--perch" src="assets/perch.png" alt="">
+            <img class="fish fish--eel" src="assets/eel.png" alt="">
+          </div>
+        </div>
+      </div>
+      <button class="carousel-toggle" type="button" aria-label="Pause fish carousel">
+        <span aria-hidden="true">❚❚</span>
+      </button>
+    </div>
+
+    <div class="brand">
+      <h1><img class="wordmark" src="assets/wordmark.png" alt="Seagais"></h1>
+      <p class="tagline">Technology for Nature</p>
+    </div>
   </main>
+
+  <script>
+    const carousel = document.querySelector(".carousel");
+    const toggle = carousel.querySelector(".carousel-toggle");
+
+    toggle.addEventListener("click", () => {
+      const paused = carousel.toggleAttribute("data-paused");
+      toggle.setAttribute("aria-label", paused ? "Play fish carousel" : "Pause fish carousel");
+      toggle.firstElementChild.textContent = paused ? "▶" : "❚❚";
+    });
+  </script>
 </body>
 </html>
